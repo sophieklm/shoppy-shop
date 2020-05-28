@@ -1,7 +1,7 @@
 <template>
   <div class="shop_wrapper">
     <div class="shop">
-      <h3>Rainbow unicorn magic</h3>
+      <h3>Totally authentic unicorns</h3>
       <table v-for="item in getShopItems" :key="item.name">
         <tbody>
           <tr>
@@ -17,39 +17,99 @@
           <tr>
             <td>£{{ item.price }}</td>
             <td>
-              <button type="button" class="shop_btn">+</button>
+              <button type="button" class="shop_btn" @click="addToBasket(item)">+</button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="basket">
+      <h3>Basket</h3>
+      <div v-if="basket.length > 0">
+        <table v-for="(item, index) in basket" :key="index">
+          <tbody>
+            <tr>
+              <td>
+                <button type="button" class="shop_btn" @click="decreaseQuantity(item)">-</button>
+                <span>{{ item.quantity }}</span>
+                <button type="button" class="shop_btn" @click="increaseQuantity(item)">+</button>
+              </td>
+              <td>
+                <small>{{ item.name }}</small>
+              </td>
+              <td>
+                <small>£{{ item.price }}</small>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <small>{{ item.description }}</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Order total:</p>
+        <button type="button" class="shop_btn">Place Order</button>
+      </div>
+      <div v-else>
+        <p>{{basketText}}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'shop',
+  name: "shop",
   data() {
     return {
+      basket: [],
+      basketText: "Your basket is empty!",
       getShopItems: {
         1: {
-          name: 'Unicorn',
-          description: 'Authentic magic unicorn',
-          price: 29,
+          name: "Unicorn",
+          description: "Authentic magic unicorn",
+          price: 29
         },
         2: {
-          name: 'Oonicorn',
-          description: 'Non-magical unicorn',
-          price: 9,
+          name: "Oonicorn",
+          description: "Non-magical unicorn",
+          price: 9
         },
         3: {
-          name: 'Moonicorn',
-          description: 'Unicow',
-          price: 20,
-        },
-      },
+          name: "Moonicorn",
+          description: "Unicow",
+          price: 20
+        }
+      }
     };
   },
+  methods: {
+    async addToBasket(item) {
+      const itemExists = await this.basket.find(i => i.name === item.name);
+      if (itemExists) {
+        itemExists.quantity++;
+        return;
+      }
+      this.basket.push({
+        name: item.name,
+        price: item.price,
+        quantity: 1
+      });
+    },
+    removeFromBasket(item) {
+      this.basket.splice(this.basket.indexOf(item), 1);
+    },
+    decreaseQuantity(item) {
+      item.quantity--;
+      if (item.quantity === 0) {
+        this.removeFromBasket(item);
+      }
+    },
+    increaseQuantity(item) {
+      item.quantity++;
+    }
+  }
 };
 </script>
 
@@ -63,12 +123,17 @@ h3 {
   flex-direction: column;
 }
 
-.shop {
+.shop,
+.basket {
   background: #edeef0;
   border-radius: 3px;
   height: 100vh;
   margin: 10px;
   padding: 10px;
+}
+
+button {
+  margin: 3px;
 }
 
 @media screen and (min-width: 900px) {
@@ -79,6 +144,9 @@ h3 {
 
   .shop {
     width: 65vw;
+  }
+  .basket {
+    width: 35vw;
   }
 }
 </style>
