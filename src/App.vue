@@ -3,21 +3,24 @@
     <Header />
     <Home />
     <Shop />
+    <Admin />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Home from './components/Home.vue';
-import Shop from './components/Shop.vue';
+import Header from "./components/Header.vue";
+import Home from "./components/Home.vue";
+import Shop from "./components/Shop.vue";
+import Admin from "./components/Admin.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
     Home,
     Shop,
-  },
+    Admin
+  }
 };
 </script>
 
@@ -27,5 +30,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.shop_btn {
+  background-color: #4abeb5;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 </style>
