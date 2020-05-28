@@ -22,7 +22,7 @@ h3 {
 .background {
   /* background: url('../assets/images/rainbow.png') center; */
   background-size: cover;
-  height: 30vh;
+  /* height: 30vh; */
 }
 
 .background-overlay {

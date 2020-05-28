@@ -61,10 +61,6 @@ h1 {
   max-width: 25vw;
 }
 
-ul {
-  padding: 10px 0;
-}
-
 li {
   display: inline-block;
 }
