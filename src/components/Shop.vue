@@ -2,22 +2,20 @@
   <div class="shop_wrapper">
     <div class="shop">
       <h3>Rainbow unicorn magic</h3>
-      <table>
+      <table v-for="item in getShopItems" :key="item.name">
         <tbody>
           <tr>
             <td>
-              <strong>Unicorn</strong>
+              <strong>{{ item.name }}</strong>
             </td>
           </tr>
           <tr>
             <td>
-              <small>Authentic magic unicorn</small>
+              <small>{{ item.description }}</small>
             </td>
           </tr>
           <tr>
-            <td>
-              £10
-            </td>
+            <td>£{{ item.price }}</td>
             <td>
               <button type="button" class="shop_btn">+</button>
             </td>
@@ -31,6 +29,27 @@
 <script>
 export default {
   name: 'shop',
+  data() {
+    return {
+      getShopItems: {
+        1: {
+          name: 'Unicorn',
+          description: 'Authentic magic unicorn',
+          price: 29,
+        },
+        2: {
+          name: 'Oonicorn',
+          description: 'Non-magical unicorn',
+          price: 9,
+        },
+        3: {
+          name: 'Moonicorn',
+          description: 'Unicow',
+          price: 20,
+        },
+      },
+    };
+  },
 };
 </script>
 

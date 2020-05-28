@@ -61,6 +61,10 @@ h1 {
   max-width: 25vw;
 }
 
+nav {
+  text-align: center;
+}
+
 li {
   display: inline-block;
 }
