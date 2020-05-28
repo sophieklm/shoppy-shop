@@ -2,7 +2,7 @@
   <header>
     <div class="header_logo">
       <img src="../assets/unicorn.png" alt="shoppy" />
-      <h1 href="/">Shoppy</h1>
+      <h1 href="/">Shoppy Shop</h1>
     </div>
     <nav>
       <ul>
@@ -45,10 +45,10 @@ h1 {
   background-image: linear-gradient(
     45deg,
     #62fdf0 25%,
-    #1a8a81 25% 50%,
+    #4abeb5 25% 50%,
     #62fdf0 50% 75%,
-    #1a8a81 75%,
-    #1a8a81 100%
+    #4abeb5 75%,
+    #4abeb5 100%
   );
   background-size: 80px 80px;
   display: flex;
@@ -67,6 +67,10 @@ ul {
 
 li {
   display: inline-block;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 900px) {
