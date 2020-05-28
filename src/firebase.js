@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const config = {
   apiKey: process.env.VUE_APP_API_KEY,
@@ -15,4 +16,5 @@ const config = {
 firebase.initializeApp(config);
 const db = firebase.firestore();
 
+export const firebaseAuth = firebase.auth();
 export const dbShopRef = db.collection('shop');

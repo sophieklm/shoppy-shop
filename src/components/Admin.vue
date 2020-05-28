@@ -1,6 +1,12 @@
 <template>
   <div class="admin_wrapper">
-    <div class="current_user_wrapper"></div>
+    <div class="current_user_wrapper">
+      <span>Logged in as:</span>
+      <button type="button" class="remove_btn" @click="signOut">
+        Sign out
+      </button>
+      <Login />
+    </div>
     <NewItem />
     <div class="shop_wrapper">
       <h3>Shop:</h3>
@@ -50,13 +56,25 @@
 </template>
 
 <script>
-import NewItem from "./NewItem";
+import NewItem from './NewItem';
+import Login from './Login';
+import { firebaseAuth } from '../firebase';
 
 export default {
-  name: "admin",
+  name: 'admin',
   components: {
-    NewItem
-  }
+    NewItem,
+    Login,
+  },
+  methods: {
+    async signOut() {
+      try {
+        await firebaseAuth.signOut();
+      } catch (error) {
+        alert(`error siging out, ${error}`);
+      }
+    },
+  },
 };
 </script>
 
