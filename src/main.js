@@ -14,24 +14,42 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/shop', component: Shop },
-  { path: '/contact', component: Contact },
-  { path: '/admin', component: Admin },
+  { path: '/', name: 'homeLink', component: Home },
+  { path: '/shop', name: 'shopLink', component: Shop },
+  { path: '/contact', name: 'contactLink', component: Contact },
+  {
+    path: '/admin',
+    name: 'adminLink',
+    component: Admin,
+    beforeEnter: (to, from, next) => {
+      alert('This area is for authorised users only, please log in', next());
+    },
+  },
   {
     path: '/about',
+    name: 'aboutLink',
     component: About,
     children: [
-      { path: '/history', component: History },
-      { path: '/delivery', component: Delivery },
-      { path: '/ordering-guide', component: OrderingGuide },
+      { path: '/history', name: 'historyLink', component: History },
+      { path: '/delivery', name: 'deliveryLink', component: Delivery },
+      {
+        path: '/ordering-guide',
+        name: 'orderingGuideLink',
+        component: OrderingGuide,
+      },
     ],
   },
   { path: '*', redirect: '/' },
 ];
+
 const router = new VueRouter({
   routes,
   mode: 'history',
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+  },
 });
 
 new Vue({

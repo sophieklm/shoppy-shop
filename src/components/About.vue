@@ -5,17 +5,17 @@
     <div>
       <nav>
         <ul>
-          <router-link to="/history" tag="li">
+          <router-link :to="{ name: 'historyLink' }" tag="li">
             <a class="nav-link">History</a>
           </router-link>
         </ul>
         <ul>
-          <router-link to="/ordering-guide">
+          <router-link :to="{ name: 'orderingGuideLink' }">
             <a class="nav-link">Ordering Guide</a>
           </router-link>
         </ul>
         <ul>
-          <router-link to="/delivery">
+          <router-link :to="{ name: 'deliveryLink' }">
             <a class="nav-link">Delivery</a>
           </router-link>
         </ul>

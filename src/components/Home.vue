@@ -3,7 +3,7 @@
     <div class="background-overlay">
       <h2>Welcome to Shoppy Shop</h2>
       <button class="shop_btn">
-        <router-link to="/shop"><a>Shop</a></router-link>
+        <router-link :to="{ name: 'shopLink' }"><a>Shop</a></router-link>
       </button>
     </div>
   </div>
@@ -12,6 +12,11 @@
 <script>
 export default {
   name: 'home',
+  methods: {
+    gotToShop() {
+      this.$router.replace('/shop');
+    },
+  },
 };
 </script>
 
