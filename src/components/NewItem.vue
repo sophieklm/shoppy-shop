@@ -7,7 +7,11 @@
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea type="text" id="description" v-model="newItem.description"></textarea>
+      <textarea
+        type="text"
+        id="description"
+        v-model="newItem.description"
+      ></textarea>
     </div>
     <div class="form-group">
       <label for="price">Price</label>
@@ -18,22 +22,23 @@
 </template>
 
 <script>
+import { dbShopRef } from '../firebase';
 export default {
-  name: "addNewItem",
+  name: 'addNewItem',
   data() {
     return {
       newItem: {
-        name: "Unicorn",
-        description: "Authentic magic unicorn",
-        price: 29
-      }
+        name: 'Unicorn',
+        description: 'Authentic magic unicorn',
+        price: 29,
+      },
     };
   },
   methods: {
     add() {
-      alert("Item added");
-    }
-  }
+      dbShopRef.add(this.newItem);
+    },
+  },
 };
 </script>
 
