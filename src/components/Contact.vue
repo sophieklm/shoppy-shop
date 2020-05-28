@@ -1,6 +1,6 @@
 <template>
   <div class="contact_wrapper">
-    <h4>Contact</h4>
+    <h3>Contact</h3>
     <div>
       <span>Try the spirit realm.</span>
     </div>

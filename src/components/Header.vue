@@ -6,21 +6,16 @@
     </div>
     <nav>
       <ul>
-        <li>
-          <router-link to="/"><a>Home</a></router-link>
-        </li>
-        <span></span>
-        <li>
-          <router-link to="/shop"><a>Shop</a></router-link>
-        </li>
-        <span> </span>
-        <li>
-          <router-link to="/contact"><a>Contact</a></router-link>
-        </li>
-        <span></span>
-        <li>
-          <router-link to="/about"><a>About</a></router-link>
-        </li>
+        <router-link :to="homeLink" tag="li"><a>Home</a></router-link>
+      </ul>
+      <ul>
+        <router-link :to="shopLink" tag="li"><a>Shop</a></router-link>
+      </ul>
+      <ul>
+        <router-link :to="contactLink" tag="li"><a>Contact</a></router-link>
+      </ul>
+      <ul>
+        <router-link :to="aboutLink" tag="li"><a>About</a></router-link>
       </ul>
     </nav>
   </header>
@@ -29,6 +24,14 @@
 <script>
 export default {
   name: 'appHeader',
+  data() {
+    return {
+      homeLink: '/',
+      shopLink: '/shop',
+      contactLink: '/contact',
+      aboutLink: '/about',
+    };
+  },
 };
 </script>
 
@@ -59,20 +62,6 @@ h1 {
 
 .header_logo img {
   max-width: 25vw;
-}
-
-nav {
-  text-align: center;
-}
-
-li {
-  display: inline-block;
-}
-
-a {
-  color: #00356a;
-  text-decoration: none;
-  padding: 8px;
 }
 
 @media screen and (min-width: 900px) {

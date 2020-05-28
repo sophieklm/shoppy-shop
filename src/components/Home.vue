@@ -24,6 +24,7 @@ h3 {
 .background {
   /* background: url('../assets/images/rainbow.png') center; */
   background-size: cover;
+  margin-top: 10px;
   /* height: 30vh; */
 }
 
@@ -36,18 +37,5 @@ h3 {
   margin: 0 auto;
   padding: 5px;
   align-items: center;
-}
-
-.shop_btn {
-  background-color: #4abeb5;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  color: #00356a;
 }
 </style>

@@ -17,7 +17,9 @@
           <tr>
             <td>£{{ item.price }}</td>
             <td>
-              <button type="button" class="shop_btn" @click="addToBasket(item)">+</button>
+              <button type="button" class="shop_btn" @click="addToBasket(item)">
+                +
+              </button>
             </td>
           </tr>
         </tbody>
@@ -30,9 +32,21 @@
           <tbody>
             <tr>
               <td>
-                <button type="button" class="shop_btn" @click="decreaseQuantity(item)">-</button>
+                <button
+                  type="button"
+                  class="shop_btn"
+                  @click="decreaseQuantity(item)"
+                >
+                  -
+                </button>
                 <span>{{ item.quantity }}</span>
-                <button type="button" class="shop_btn" @click="increaseQuantity(item)">+</button>
+                <button
+                  type="button"
+                  class="shop_btn"
+                  @click="increaseQuantity(item)"
+                >
+                  +
+                </button>
               </td>
               <td>
                 <small>{{ item.name }}</small>
@@ -49,10 +63,12 @@
           </tbody>
         </table>
         <p>Order total:</p>
-        <button type="button" class="shop_btn">Place Order</button>
+        <button type="button" class="shop_btn" @click="alert">
+          Place Order
+        </button>
       </div>
       <div v-else>
-        <p>{{basketText}}</p>
+        <p>{{ basketText }}</p>
       </div>
     </div>
   </div>
@@ -60,33 +76,33 @@
 
 <script>
 export default {
-  name: "shop",
+  name: 'shop',
   data() {
     return {
       basket: [],
-      basketText: "Your basket is empty!",
+      basketText: 'Your basket is empty!',
       getShopItems: {
         1: {
-          name: "Unicorn",
-          description: "Authentic magic unicorn",
-          price: 29
+          name: 'Unicorn',
+          description: 'Authentic magic unicorn',
+          price: 29,
         },
         2: {
-          name: "Oonicorn",
-          description: "Non-magical unicorn",
-          price: 9
+          name: 'Oonicorn',
+          description: 'Non-magical unicorn',
+          price: 9,
         },
         3: {
-          name: "Moonicorn",
-          description: "Unicow",
-          price: 20
-        }
-      }
+          name: 'Moonicorn',
+          description: 'Unicow',
+          price: 20,
+        },
+      },
     };
   },
   methods: {
     async addToBasket(item) {
-      const itemExists = await this.basket.find(i => i.name === item.name);
+      const itemExists = await this.basket.find((i) => i.name === item.name);
       if (itemExists) {
         itemExists.quantity++;
         return;
@@ -94,8 +110,11 @@ export default {
       this.basket.push({
         name: item.name,
         price: item.price,
-        quantity: 1
+        quantity: 1,
       });
+    },
+    alert() {
+      alert('Hooray, your unicorder is on its magical way.');
     },
     removeFromBasket(item) {
       this.basket.splice(this.basket.indexOf(item), 1);
@@ -108,8 +127,8 @@ export default {
     },
     increaseQuantity(item) {
       item.quantity++;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -130,10 +149,6 @@ h3 {
   height: 100vh;
   margin: 10px;
   padding: 10px;
-}
-
-button {
-  margin: 3px;
 }
 
 @media screen and (min-width: 900px) {
