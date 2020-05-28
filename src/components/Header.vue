@@ -7,19 +7,19 @@
     <nav>
       <ul>
         <li>
-          <a href="/">home</a>
+          <router-link to="/"><a>Home</a></router-link>
         </li>
-        <span>~</span>
+        <span></span>
         <li>
-          <a href="/shop">shop</a>
+          <router-link to="/shop"><a>Shop</a></router-link>
         </li>
-        <span>~</span>
+        <span> </span>
         <li>
-          <a href="/contact">contact</a>
+          <router-link to="/contact"><a>Contact</a></router-link>
         </li>
-        <span>~</span>
+        <span></span>
         <li>
-          <a href="/about">about us</a>
+          <router-link to="/about"><a>About</a></router-link>
         </li>
       </ul>
     </nav>
@@ -70,7 +70,9 @@ li {
 }
 
 a {
+  color: #00356a;
   text-decoration: none;
+  padding: 8px;
 }
 
 @media screen and (min-width: 900px) {

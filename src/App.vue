@@ -1,26 +1,18 @@
 <template>
   <div id="app">
     <Header />
-    <Home />
-    <Shop />
-    <Admin />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Home from "./components/Home.vue";
-import Shop from "./components/Shop.vue";
-import Admin from "./components/Admin.vue";
+import Header from './components/Header.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
-    Home,
-    Shop,
-    Admin
-  }
+  },
 };
 </script>
 

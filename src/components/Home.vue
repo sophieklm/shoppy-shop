@@ -2,7 +2,9 @@
   <div class="background">
     <div class="background-overlay">
       <h2>Welcome to Shoppy Shop</h2>
-      <button class="shop_btn">Shop</button>
+      <button class="shop_btn">
+        <router-link to="/shop"><a>Shop</a></router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -42,5 +44,10 @@ h3 {
   margin-bottom: 10px;
   padding: 5px;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #00356a;
 }
 </style>
