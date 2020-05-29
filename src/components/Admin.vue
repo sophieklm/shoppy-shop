@@ -1,11 +1,15 @@
 <template>
   <div class="admin_wrapper">
     <div class="current_user_wrapper">
-      <span>Logged in as:</span>
-      <button type="button" class="remove_btn" @click="signOut">
-        Sign out
-      </button>
-      <Login />
+      <div v-if="currentUser">
+        <span>Logged in as: {{ currentUser }}</span>
+        <button type="button" class="remove_btn" @click="signOut">
+          Sign out
+        </button>
+      </div>
+      <div v-else>
+        <Login />
+      </div>
     </div>
     <NewItem />
     <div class="shop_wrapper">
@@ -58,7 +62,7 @@
 <script>
 import NewItem from './NewItem';
 import Login from './Login';
-import { firebaseAuth } from '../firebase';
+import { store } from '../store/store';
 
 export default {
   name: 'admin',
@@ -73,14 +77,13 @@ export default {
     numberOfOrders() {
       return this.$store.getters.numberOfOrders;
     },
+    currentUser() {
+      return this.$store.getters.currentUser;
+    },
   },
   methods: {
     async signOut() {
-      try {
-        await firebaseAuth.signOut();
-      } catch (error) {
-        alert(`error siging out, ${error}`);
-      }
+      store.dispatch('signOut');
     },
   },
 };
