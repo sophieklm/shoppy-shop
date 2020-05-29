@@ -2,6 +2,11 @@
   <div id="app">
     <Header />
     <router-view></router-view>
+    <div class="info_block_wrapper">
+      <router-view name="ordering-guide"></router-view>
+      <router-view name="delivery"></router-view>
+      <router-view name="history"></router-view>
+    </div>
   </div>
 </template>
 
@@ -62,5 +67,45 @@ span {
   margin: 5px 5px;
   padding: 2px 5px;
   cursor: pointer;
+}
+
+.info_block_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.info_block {
+  background: #edeef0;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.info_block h4 {
+  text-align: center;
+}
+
+.info_block_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 900px) {
+  .info_block {
+    width: 100%;
+  }
+
+  .info_block_wrapper {
+    flex-direction: row;
+  }
+
+  .info_block:nth-child(2) {
+    margin: 10px;
+  }
+
+  .info_block_content {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

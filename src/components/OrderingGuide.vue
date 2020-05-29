@@ -1,7 +1,7 @@
 <template>
   <div class="info_block">
     <h4>How to Order</h4>
-    <div class="info_block_contact">
+    <div class="info_block_content">
       <p>Isn't it obvious?</p>
     </div>
   </div>
