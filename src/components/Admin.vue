@@ -63,6 +63,7 @@
 import NewItem from './NewItem';
 import Login from './Login';
 import { store } from '../store/store';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'admin',
@@ -71,15 +72,7 @@ export default {
     Login,
   },
   computed: {
-    getShopItems() {
-      return this.$store.state.shopItems;
-    },
-    numberOfOrders() {
-      return this.$store.getters.numberOfOrders;
-    },
-    currentUser() {
-      return this.$store.getters.currentUser;
-    },
+    ...mapGetters(['getShopItems', 'numberOfOrders', 'currentUser']),
   },
   methods: {
     async signOut() {

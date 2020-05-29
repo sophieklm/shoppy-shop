@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'shop',
   data() {
@@ -84,9 +85,7 @@ export default {
     };
   },
   computed: {
-    getShopItems() {
-      return this.$store.getters.getShopItems;
-    },
+    ...mapGetters(['getShopItems']),
   },
   methods: {
     async addToBasket(item) {
