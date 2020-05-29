@@ -63,7 +63,7 @@
           </tbody>
         </table>
         <p>Order total:</p>
-        <button type="button" class="shop_btn" @click="alert">
+        <button type="button" class="shop_btn" @click="addNewOrder">
           Place Order
         </button>
       </div>
@@ -85,7 +85,7 @@ export default {
   },
   computed: {
     getShopItems() {
-      return this.$store.state.shopItems;
+      return this.$store.getters.getShopItems;
     },
   },
   methods: {
@@ -115,6 +115,11 @@ export default {
     },
     increaseQuantity(item) {
       item.quantity++;
+    },
+    addNewOrder() {
+      this.$store.commit('addOrder', this.basket);
+      this.basket = [];
+      this.basketText = 'Thank you, your order has been placed!';
     },
   },
 };

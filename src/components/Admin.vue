@@ -28,7 +28,7 @@
       </table>
     </div>
     <div class="order_wrapper">
-      <h3>Orders:</h3>
+      <h3>Orders ({{ numberOfOrders }}):</h3>
       <table>
         <thead>
           <tr>
@@ -69,6 +69,9 @@ export default {
   computed: {
     getShopItems() {
       return this.$store.state.shopItems;
+    },
+    numberOfOrders() {
+      return this.$store.getters.numberOfOrders;
     },
   },
   methods: {

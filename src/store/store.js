@@ -21,5 +21,15 @@ export const store = new Vuex.Store({
         price: 20,
       },
     },
+    orders: [],
+  },
+  getters: {
+    getShopItems: (state) => state.shopItems,
+    numberOfOrders: (state) => state.orders.length,
+  },
+  mutations: {
+    addOrder: (state, orders) => {
+      state.orders.push(orders);
+    },
   },
 });
