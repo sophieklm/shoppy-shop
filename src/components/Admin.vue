@@ -17,9 +17,9 @@
             <th>Remove from shop</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-for="item in getShopItems" :key="item.id">
           <tr>
-            <td>Unicorn</td>
+            <td>{{ item.name }}</td>
             <td>
               <button type="button" class="remove_btn">&times;</button>
             </td>
@@ -65,6 +65,11 @@ export default {
   components: {
     NewItem,
     Login,
+  },
+  computed: {
+    getShopItems() {
+      return this.$store.state.shopItems;
+    },
   },
   methods: {
     async signOut() {

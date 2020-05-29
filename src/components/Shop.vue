@@ -81,24 +81,12 @@ export default {
     return {
       basket: [],
       basketText: 'Your basket is empty!',
-      getShopItems: {
-        1: {
-          name: 'Unicorn',
-          description: 'Authentic magic unicorn',
-          price: 29,
-        },
-        2: {
-          name: 'Oonicorn',
-          description: 'Non-magical unicorn',
-          price: 9,
-        },
-        3: {
-          name: 'Moonicorn',
-          description: 'Unicow',
-          price: 20,
-        },
-      },
     };
+  },
+  computed: {
+    getShopItems() {
+      return this.$store.state.shopItems;
+    },
   },
   methods: {
     async addToBasket(item) {
