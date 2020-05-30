@@ -25,7 +25,13 @@
           <tr>
             <td>{{ item.name }}</td>
             <td>
-              <button type="button" class="remove_btn">&times;</button>
+              <button
+                type="button"
+                class="remove_btn"
+                @click="removeShopItem(item.id)"
+              >
+                &times;
+              </button>
             </td>
           </tr>
         </tbody>
@@ -45,7 +51,13 @@
           <tr class="order_number">
             <th colspan="4">
               <strong>Order number: {{ index + 1 }}</strong>
-              <button type="button" class="remove_btn">&times;</button>
+              <button
+                type="button"
+                class="remove_btn"
+                @click="removeOrder(order.id)"
+              >
+                &times;
+              </button>
             </th>
           </tr>
           <tr v-for="orderItem in order.items" :key="orderItem.id">
@@ -82,6 +94,12 @@ export default {
   methods: {
     async signOut() {
       store.dispatch('signOut');
+    },
+    removeShopItem(id) {
+      store.dispatch('removeShopItem', id);
+    },
+    removeOrder(id) {
+      store.dispatch('removeOrder', id);
     },
   },
 };
