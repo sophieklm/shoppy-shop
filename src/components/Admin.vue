@@ -11,63 +11,65 @@
         <Login />
       </div>
     </div>
-    <NewItem />
-    <div class="shop_wrapper">
-      <h3>Shop:</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Remove from shop</th>
-          </tr>
-        </thead>
-        <tbody v-for="item in getShopItems" :key="item.id">
-          <tr>
-            <td>{{ item.name }}</td>
-            <td>
-              <button
-                type="button"
-                class="remove_btn"
-                @click="removeShopItem(item.id)"
-              >
-                &times;
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="order_wrapper">
-      <h3>Orders ({{ numberOfOrders }}):</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody v-for="(order, index) in getOrders" :key="order.id">
-          <tr class="order_number">
-            <th colspan="4">
-              <strong>Order number: {{ index + 1 }}</strong>
-              <button
-                type="button"
-                class="remove_btn"
-                @click="removeOrder(order.id)"
-              >
-                &times;
-              </button>
-            </th>
-          </tr>
-          <tr v-for="orderItem in order.items" :key="orderItem.id">
-            <td>{{ orderItem.name }}</td>
-            <td>{{ orderItem.quantity }}</td>
-            <td>£{{ orderItem.price }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <section v-if="currentUser">
+      <NewItem />
+      <div class="shop_wrapper">
+        <h3>Shop:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Remove from shop</th>
+            </tr>
+          </thead>
+          <tbody v-for="item in getShopItems" :key="item.id">
+            <tr>
+              <td>{{ item.name }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="remove_btn"
+                  @click="removeShopItem(item.id)"
+                >
+                  &times;
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="order_wrapper">
+        <h3>Orders ({{ numberOfOrders }}):</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody v-for="(order, index) in getOrders" :key="order.id">
+            <tr class="order_number">
+              <th colspan="4">
+                <strong>Order number: {{ index + 1 }}</strong>
+                <button
+                  type="button"
+                  class="remove_btn"
+                  @click="removeOrder(order.id)"
+                >
+                  &times;
+                </button>
+              </th>
+            </tr>
+            <tr v-for="orderItem in order.items" :key="orderItem.id">
+              <td>{{ orderItem.name }}</td>
+              <td>{{ orderItem.quantity }}</td>
+              <td>£{{ orderItem.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 </template>
 
