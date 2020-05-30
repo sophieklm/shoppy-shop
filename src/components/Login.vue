@@ -3,11 +3,11 @@
     <p>Please login to continue</p>
     <form>
       <div>
-        <label for="email">Email address</label>
+        <label for="email">Email address: </label>
         <input type="email" v-model="email" id="email" placeholder="Email" />
       </div>
       <div>
-        <label for="password">Password</label>
+        <label for="password">Password: </label>
         <input
           type="password"
           v-model="password"

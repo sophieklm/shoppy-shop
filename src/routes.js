@@ -1,7 +1,9 @@
 import Home from './components/Home';
-import Shop from './components/Shop';
-import About from './components/About';
-import Contact from './components/Contact';
+const Shop = () => import('./components/Shop');
+const About = () =>
+  import(/* webpackChunkName: "navGroup" */ './components/About');
+const Contact = () =>
+  import(/* webpackChunkName: "navGroup" */ './components/Contact');
 import History from './components/History';
 import Delivery from './components/Delivery';
 import Admin from './components/Admin';

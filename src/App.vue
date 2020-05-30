@@ -68,6 +68,15 @@ span {
   cursor: pointer;
 }
 
+.remove_btn {
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 3px;
+  margin: 5px 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
 .info_block_wrapper {
   display: flex;
   flex-direction: column;
