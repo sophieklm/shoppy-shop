@@ -64,7 +64,7 @@
             <tr v-for="orderItem in order.items" :key="orderItem.id">
               <td>{{ orderItem.name }}</td>
               <td>{{ orderItem.quantity }}</td>
-              <td>£{{ orderItem.price }}</td>
+              <td>{{ orderItem.price | currency }}</td>
             </tr>
           </tbody>
         </table>

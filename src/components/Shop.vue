@@ -15,7 +15,7 @@
             </td>
           </tr>
           <tr>
-            <td>£{{ item.price }}</td>
+            <td>{{ item.price | currency }}</td>
             <td>
               <button type="button" class="shop_btn" @click="addToBasket(item)">
                 +
@@ -52,7 +52,7 @@
                 <small>{{ item.name }}</small>
               </td>
               <td>
-                <small>£{{ item.price }}</small>
+                <small>{{ item.price | currency }}</small>
               </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
             </tr>
           </tbody>
         </table>
-        <p>Order total:</p>
+        <p>Order total: {{ total | currency }}</p>
         <button type="button" class="shop_btn" @click="addNewOrder">
           Place Order
         </button>
@@ -88,6 +88,13 @@ export default {
   },
   computed: {
     ...mapGetters(['getShopItems']),
+    total() {
+      let totalCost = 0;
+      this.basket.map((item) => {
+        totalCost += item.quantity * item.price;
+      });
+      return totalCost;
+    },
   },
   methods: {
     async addToBasket(item) {
