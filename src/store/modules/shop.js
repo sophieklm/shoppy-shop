@@ -15,6 +15,13 @@ const actions = {
   setShopRef: firestoreAction((context) => {
     return context.bindFirestoreRef('shopItems', dbShopRef);
   }),
+  addShopItem: async (context, item) => {
+    try {
+      await dbShopRef.add(item);
+    } catch (error) {
+      alert(`Error creating order, ${error}`);
+    }
+  },
 };
 
 export default {

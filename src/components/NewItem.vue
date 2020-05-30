@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { dbShopRef } from '../firebase';
+import { store } from '../store/store';
+
 export default {
   name: 'addNewItem',
   data() {
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     add() {
-      dbShopRef.add(this.newItem);
+      store.dispatch('addShopItem', this.newItem);
     },
   },
 };

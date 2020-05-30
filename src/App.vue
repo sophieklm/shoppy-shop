@@ -12,7 +12,7 @@
 
 <script>
 import Header from './components/Header.vue';
-import { dbShopRef } from './firebase';
+import { dbShopRef, dbOrdersRef } from './firebase';
 
 export default {
   name: 'App',
@@ -21,6 +21,7 @@ export default {
   },
   created() {
     this.$store.dispatch('setShopRef', dbShopRef);
+    this.$store.dispatch('setOrdersRef', dbOrdersRef);
   },
 };
 </script>
