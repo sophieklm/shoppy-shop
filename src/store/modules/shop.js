@@ -1,21 +1,8 @@
+import { firestoreAction } from 'vuexfire';
+import { dbShopRef } from '../../firebase';
+
 const state = {
-  shopItems: {
-    1: {
-      name: 'Unicorn',
-      description: 'Authentic magic unicorn',
-      price: 29,
-    },
-    2: {
-      name: 'Oonicorn',
-      description: 'Non-magical unicorn',
-      price: 9,
-    },
-    3: {
-      name: 'Moonicorn',
-      description: 'Unicow',
-      price: 20,
-    },
-  },
+  shopItems: [],
 };
 
 const getters = {
@@ -24,7 +11,11 @@ const getters = {
 
 const mutations = {};
 
-const actions = {};
+const actions = {
+  setShopRef: firestoreAction((context) => {
+    return context.bindFirestoreRef('shopItems', dbShopRef);
+  }),
+};
 
 export default {
   state,

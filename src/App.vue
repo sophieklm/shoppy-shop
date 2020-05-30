@@ -12,11 +12,15 @@
 
 <script>
 import Header from './components/Header.vue';
+import { dbShopRef } from './firebase';
 
 export default {
   name: 'App',
   components: {
     Header,
+  },
+  created() {
+    this.$store.dispatch('setShopRef', dbShopRef);
   },
 };
 </script>
