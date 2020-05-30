@@ -33,12 +33,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-.shop_btn {
-  background-color: #4abeb5;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
 
 body {
   font-family: 'Crimson Text', 'serif';
@@ -93,6 +87,16 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+input,
+textarea {
+  font-size: 1.1rem;
+}
+
+button {
+  border: none;
+  font-size: 1rem;
 }
 
 @media screen and (min-width: 900px) {
